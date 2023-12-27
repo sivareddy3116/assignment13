@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebAppAssignment.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+  
+
+
+}
+
+
+<h2>Welcome To Our Courses</h2>
+<h2>Number of Available Courses Are:@ViewBag.noCourse</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CID })
+            </td>
+        </tr>
+    }
+
+</table>
